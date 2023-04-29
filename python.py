@@ -1,3 +1,7 @@
+#Autor   : quentin.peridon@hotmail.fr
+#Version : 1.2
+#Date    : 29/04/2023
+
 import requests
 import json
 responses = []
