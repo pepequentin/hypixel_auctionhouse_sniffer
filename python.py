@@ -38,7 +38,7 @@ for auction in auctions:
             # chest  24m
             # leggi  23m
             # boots  22m
-            elif auction["tier"] == "MYTHIC" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 28999999:
+            elif auction["tier"] == "MYTHIC" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 27999999:
                 print("Potential 50 000 mythic     : " + auction["item_name"] + " at the price of " + str(auction["starting_bid"]))
             elif auction["tier"] == "MYTHIC" and auction["item_lore"].find("100,000") != -1 and auction["starting_bid"] < 35000000:
                 print("Potential 100 000 mythic    : " + auction["item_name"] + " at the price of " + str(auction["starting_bid"]))
@@ -54,9 +54,10 @@ for auction in auctions:
                 print("Wither skeleton leg lvl 100 : " + str(auction["starting_bid"]))
         #item_helmet_tar
         elif auction["bin"] and auction["item_name"].find(item_helmet_tar) != -1:
-            print(auction)
-            if auction["tier"] == "MYTHIC" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 100000000:
-                print("Potential helmet tarantul : " + str(auction["starting_bid"]))
+            if auction["tier"] == "MYTHIC" and auction["item_lore"].find("25,000") != -1 and auction["starting_bid"] < 20000000:
+                print("Potential helmet tarantula : " + str(auction["starting_bid"]))
+            if auction["tier"] == "MYTHIC" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 30000000:
+                print("Potential helmet tarantula : " + str(auction["starting_bid"]))
 
     except KeyError:
         pass
