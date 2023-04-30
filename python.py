@@ -2,10 +2,15 @@
 #Version : 1.2
 #Date    : 29/04/2023
 
+#imports
 import requests
 import json
+
 responses = []
 url = f"https://api.hypixel.net/skyblock/auctions"
+
+
+#get the number of page in the auctions house
 response = requests.get(url)
 response_json = response.json()
 if response_json.get("success") == False and response_json.get("cause") == "Page not found":
