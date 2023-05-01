@@ -17,6 +17,7 @@ if response_json.get("success") == False and response_json.get("cause") == "Page
     exit
 number_of_page=(response_json.get("totalPages"))
 
+#loop on all pages of the auction house in order to fill responses[]
 for i in range(0, number_of_page):
     url = f"https://api.hypixel.net/skyblock/auctions?page={i}"
     response = requests.get(url)
