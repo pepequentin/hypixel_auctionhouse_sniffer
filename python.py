@@ -37,7 +37,7 @@ for auction in auctions:
         #item_final_destination
         if auction["bin"] and auction["item_name"].find(item_final_destination) != -1:
             # ici le prix que jachete environ 10m je vends apres recomb autour de 21m donc environ 3m de benef
-            if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 18000000:
+            if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 15000000:
                 print("Potential 50 000 leg        : " + auction["item_name"] + " at the price of " + str(auction["starting_bid"]))
             # ici le prix que je vends les mythic final
             # helmet 23m
