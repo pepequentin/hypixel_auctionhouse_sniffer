@@ -39,7 +39,10 @@ def process_auction(auction):
             results.append("Potential helmet tarantula : " + str(auction["starting_bid"]))
     pass
 
+
+#list of all responses from get call
 responses = []
+#url of the skyblock auctions
 url = f"https://api.hypixel.net/skyblock/auctions"
 
 #get the number of page in the auctions house
@@ -50,8 +53,8 @@ if response_json.get("success") == False and response_json.get("cause") == "Page
 number_of_page=(response_json.get("totalPages"))
 
 #loop on all pages of the auction house in order to fill responses[]
-for i in range(0, number_of_page):
-    url = f"https://api.hypixel.net/skyblock/auctions?page={i}"
+for pages in range(0, number_of_page):
+    url = f"https://api.hypixel.net/skyblock/auctions?page={pages}"
     response = requests.get(url)
     response_json = response.json()
     if response_json.get("success") == False and response_json.get("cause") == "Page not found":
@@ -88,7 +91,7 @@ categories_list = ["Leggings", "Helmet", "Boots", "Chestplate", "lvl 100"]
 # On crée un dictionnaire qui a pour clés les catégories et pour valeurs des listes vides.
 categories_results = {category: [] for category in categories_list}
 
-# On parcourt chaque élément de la liste results, 
+# On parcourt chaque élément de la liste results,
 # puis pour chaque catégorie, si la catégorie est présente dans la chaîne de caractères de l'élément,
 # on ajoute cet élément à la liste correspondante dans le dictionnaire categories_results.
 for result in results:
