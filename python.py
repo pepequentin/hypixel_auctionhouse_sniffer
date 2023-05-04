@@ -21,7 +21,7 @@ def process_auction(auction):
 
     # Recherche l'objet "Tiger" pour des enchères épiques et légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_tiger) != -1:
-        if auction["tier"] == "EPIC" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 40000000:
+        if auction["tier"] == "EPIC" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 17999999:
             results.append("Tiger epic lvl 100          : " + str(auction["starting_bid"]))
         elif auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 35000000:
             results.append("Tiger leg lvl 100           : " + str(auction["starting_bid"]))
@@ -101,6 +101,6 @@ for result in results:
 
 # Affichage des résultats triés par catégorie
 for category, results_list in categories_results.items():
-    print(f"\n{category}:\n{'='*70}")
-    for result in sorted(results_list, key=lambda x: x[-9]):
+    print(f"\n{category}:\n{'='*100}")
+    for result in sorted(results_list, key=lambda x: x[-9:]):
         print(f"{result}")
