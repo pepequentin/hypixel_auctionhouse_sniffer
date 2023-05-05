@@ -2,7 +2,7 @@
 #Version : 1.2
 #Date    : 29/04/2023
 
-#imports
+# Imports
 import requests
 import concurrent.futures
 import re
@@ -40,19 +40,19 @@ def process_auction(auction):
     pass
 
 
-#list of all responses from get call
+# List of all responses from get call
 responses = []
-#url of the skyblock auctions
+# Url of the skyblock auctions
 url = f"https://api.hypixel.net/skyblock/auctions"
 
-#get the number of page in the auctions house
+# Get the number of page in the auctions house
 response = requests.get(url)
 response_json = response.json()
 if response_json.get("success") == False and response_json.get("cause") == "Page not found":
     exit
 number_of_page=(response_json.get("totalPages"))
 
-#loop on all pages of the auction house in order to fill responses[]
+# Loop on all pages of the auction house in order to fill responses[]
 for pages in range(0, number_of_page):
     url = f"https://api.hypixel.net/skyblock/auctions?page={pages}"
     response = requests.get(url)
@@ -101,6 +101,7 @@ for result in results:
 
 # Affichage des résultats triés par catégorie
 for category, results_list in categories_results.items():
+    # Affichage de 100 '=' pour un meilleur affichage
     print(f"\n{category}:\n{'='*100}")
     for result in sorted(results_list, key=lambda x: x[-9:]):
         print(f"{result}")
