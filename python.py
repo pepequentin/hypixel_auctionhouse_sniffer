@@ -72,7 +72,7 @@ item_tiger = "Tiger"
 item_skeleton = "Wither Skeleton"
 item_helmet_tar = "Tarantula Helmet"
 
-# créer une liste pour stocker les résultats
+# Créer une liste pour stocker les résultats
 results = []
 
 # Parcours chaque enchère pour les objets recherchés.
