@@ -31,6 +31,16 @@ def process_auction(auction):
         if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 9000000:
             results.append("Wither skeleton leg lvl 100 : " + str(auction["starting_bid"]))
 
+    # Recherche l'objet "Sheep" pour des enchères légendaires à bas prix.
+    elif auction["bin"] and auction["item_name"].find(item_sheep) != -1:
+        if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 11500000:
+            results.append("Sheep leg lvl 100 : " + str(auction["starting_bid"]))
+
+    # Recherche l'objet "Elephant" pour des enchères légendaires à bas prix.
+    elif auction["bin"] and auction["item_name"].find(item_elephant) != -1:
+        if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 40000000:
+            results.append("Sheep leg lvl 100 : " + str(auction["starting_bid"]))
+
     # Recherche l'objet "Tarantula Helmet" pour des enchères mythiques à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_helmet_tar) != -1:
         if auction["tier"] == "MYTHIC" and auction["item_lore"].find("25,000") != -1 and auction["starting_bid"] < 20000000:
@@ -70,6 +80,8 @@ item_final_destination = "Final"
 item_shadow_assassin = "Ancient Shadow Assassin"
 item_tiger = "Tiger"
 item_skeleton = "Wither Skeleton"
+item_sheep="Sheep"
+item_elephant="Elephant"
 item_helmet_tar = "Tarantula Helmet"
 
 # Créer une liste pour stocker les résultats
