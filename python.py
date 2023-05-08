@@ -39,7 +39,7 @@ def process_auction(auction):
     # Recherche l'objet "Elephant" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_elephant) != -1:
         if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 40000000:
-            results.append("Sheep leg lvl 100 : " + str(auction["starting_bid"]))
+            results.append("ENVIRON 30 a 40m Sheep leg lvl 100 : " + str(auction["starting_bid"]))
 
     # Recherche l'objet "Tarantula Helmet" pour des enchères mythiques à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_helmet_tar) != -1:
