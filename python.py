@@ -21,9 +21,9 @@ def process_auction(auction):
 
     # Recherche l'objet "Tiger" pour des enchères épiques et légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_tiger) != -1:
-        if auction["tier"] == "EPIC" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 17999999:
+        if auction["tier"] == "EPIC" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 40999999:
             results.append("Tiger epic lvl 100          : " + str(auction["starting_bid"]))
-        elif auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 35000000:
+        elif auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 70000000:
             results.append("Tiger leg lvl 100           : " + str(auction["starting_bid"]))
 
     # Recherche l'objet "Wither Skeleton" pour des enchères légendaires à bas prix.
@@ -34,19 +34,19 @@ def process_auction(auction):
     # Recherche l'objet "Sheep" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_sheep) != -1:
         if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 11500000:
-            results.append("Sheep leg lvl 100 : " + str(auction["starting_bid"]))
+            results.append("Sheep leg lvl 100           : " + str(auction["starting_bid"]))
 
     # Recherche l'objet "Elephant" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_elephant) != -1:
-        if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 40000000:
-            results.append("ENVIRON 30 a 40m Sheep leg lvl 100 : " + str(auction["starting_bid"]))
+        if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 46000000:
+            results.append("Elephant leg lvl 100        : " + str(auction["starting_bid"]))
 
     # Recherche l'objet "Tarantula Helmet" pour des enchères mythiques à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_helmet_tar) != -1:
         if auction["tier"] == "MYTHIC" and auction["item_lore"].find("25,000") != -1 and auction["starting_bid"] < 20000000:
-            results.append("Potential helmet tarantula : " + str(auction["starting_bid"]))
+            results.append("Potential helmet tarantula  : " + str(auction["starting_bid"]))
         if auction["tier"] == "MYTHIC" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 30000000:
-            results.append("Potential helmet tarantula : " + str(auction["starting_bid"]))
+            results.append("Potential helmet tarantula  : " + str(auction["starting_bid"]))
     pass
 
 
