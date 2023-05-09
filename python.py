@@ -26,11 +26,11 @@ def process_auction(auction):
     if auction["bin"] and auction["item_name"].find(item_final_destination) != -1:
         # L'objet "Final Destination" a une enchère initiale de 15M à 22M.
         if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 14999999:
-            results.append("Potential 50 000 leg        : " + auction["item_name"] + " at the price of " + str(auction["starting_bid"]))
+            results.append("    Potential 50 000 leg        : " + auction["item_name"] + " at the price of " + str(auction["starting_bid"]))
         elif auction["tier"] == "MYTHIC" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 28999999:
-            results.append("Potential 50 000 mythic     : " + auction["item_name"] + " at the price of " + str(auction["starting_bid"]))
+            results.append("    Potential 50 000 mythic     : " + auction["item_name"] + " at the price of " + str(auction["starting_bid"]))
         elif auction["tier"] == "MYTHIC" and auction["item_lore"].find("100,000") != -1 and auction["starting_bid"] < 35000000:
-            results.append("Potential 100 000 mythic    : " + auction["item_name"] + " at the price of " + str(auction["starting_bid"]))
+            results.append("    Potential 100 000 mythic    : " + auction["item_name"] + " at the price of " + str(auction["starting_bid"]))
 
 
     #                    ___......----:'"":--....(\
@@ -49,9 +49,9 @@ def process_auction(auction):
     # Recherche l'objet "Tiger" pour des enchères épiques et légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_tiger) != -1:
         if auction["tier"] == "EPIC" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 18999999:
-            results.append("Tiger epic lvl 100          : " + str(auction["starting_bid"]))
+            results.append("    Tiger epic lvl 100          : " + str(auction["starting_bid"]))
         elif auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 28000000:
-            results.append("Tiger leg lvl 100           : " + str(auction["starting_bid"]))
+            results.append("    Tiger leg lvl 100           : " + str(auction["starting_bid"]))
 
 
     #  |\(                          .'  Y '>,
@@ -73,7 +73,7 @@ def process_auction(auction):
     # Recherche l'objet "Wither Skeleton" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_skeleton) != -1:
         if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 9000000:
-            results.append("Wither skeleton leg lvl 100 : " + str(auction["starting_bid"]))
+            results.append("    Wither skeleton leg lvl 100 : " + str(auction["starting_bid"]))
 
 
     #                      __..--"".          .""--..__             
@@ -87,7 +87,7 @@ def process_auction(auction):
     # Recherche l'objet "Reaper Scythe" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_reaper) != -1:
         if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("Ultimate Wise V") != -1 and auction["starting_bid"] < 40000000:
-            results.append("Reaper Scythe               : " + str(auction["starting_bid"]))
+            results.append("    Reaper Scythe               : " + str(auction["starting_bid"]))
 
 
     #            __  _
@@ -102,7 +102,7 @@ def process_auction(auction):
     # Recherche l'objet "Sheep" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_sheep) != -1:
         if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 11500000:
-            results.append("Sheep leg lvl 100           : " + str(auction["starting_bid"]))
+            results.append("    Sheep leg lvl 100           : " + str(auction["starting_bid"]))
     
     
     #                  .---.
@@ -119,7 +119,7 @@ def process_auction(auction):
     # Recherche l'objet "Elephant" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_elephant) != -1:
         if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 40000000:
-            results.append("Elephant leg lvl 100        : " + str(auction["starting_bid"]))
+            results.append("    Elephant leg lvl 100        : " + str(auction["starting_bid"]))
 
 
     #                     /\              _
@@ -143,9 +143,9 @@ def process_auction(auction):
     # Recherche l'objet "Tarantula Helmet" pour des enchères mythiques à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_helmet_tar) != -1:
         if auction["tier"] == "MYTHIC" and auction["item_lore"].find("25,000") != -1 and auction["starting_bid"] < 20000000:
-            results.append("Potential helmet tarantula  : " + str(auction["starting_bid"]))
+            results.append("    Potential helmet tarantula  : " + str(auction["starting_bid"]))
         if auction["tier"] == "MYTHIC" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 30000000:
-            results.append("Potential helmet tarantula  : " + str(auction["starting_bid"]))
+            results.append("    Potential helmet tarantula  : " + str(auction["starting_bid"]))
     pass
 
 
@@ -170,6 +170,15 @@ for pages in range(0, number_of_page):
         break
     responses.append(response_json)
 
+
+#                              _        ,
+#                             (_\______/________
+#                               \-|-|/|-|-|-|-|/
+#                                \==/-|-|-|-|-/
+#                                 \/|-|-|-|,-'
+#                                  \--|-'''
+#                                   \_j________
+#                                   (_)     (_)
 # Crée une liste d'enchères en filtrant les enchères à partir de réponses.
 # Si aucune enchère n'est trouvée, renvoie une liste vide.
 auctions = [auction for response in responses for auction in response.get("auctions", [])]
@@ -211,6 +220,16 @@ for result in results:
         if category in str(result):
             categories_results[category].append(result)
 
+
+#                           ________________
+#                         _/_______________/|
+#                        /___________/___//||
+#                 _     |===        |----| ||
+#                | |    |           |   �| ||
+#  ___  ___  _ __| |_   |___________|   �| ||
+# / __|/ _ \| '__| __|  | ||/.�---.||    | ||
+# \__ \ (_) | |  | |_   |-||/_____\||-.  | |�
+# |___/\___/|_|   \__|  |_||=L==H==||_|__|/   
 # Affichage des résultats triés par catégorie
 for category, results_list in categories_results.items():
     # Affichage de 100 '=' pour un meilleur affichage
