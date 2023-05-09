@@ -86,7 +86,7 @@ def process_auction(auction):
     #    |`                            / /\                            `|
     # Recherche l'objet "Reaper Scythe" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_reaper) != -1:
-        if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("Ultimate Wise V") != -1 and auction["starting_bid"] < 40000000:
+        if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("Ultimate Wise V") != -1 and auction["starting_bid"] < 38999999:
             results.append("    Reaper Scythe               : " + str(auction["starting_bid"]))
 
 
