@@ -9,6 +9,19 @@ import re
 
 
 def process_auction(auction):
+    #        ^
+    #        |
+    #        +
+    #        |
+    #        |
+    #        |
+    #        |
+    #        |
+    #        A
+    #       ===                ________
+    #      /EEE\               |______|
+    #     //EEE\\              |*(  )*|
+    # ___//_____\\_____________|O|  |O|_______
     # Recherche l'objet "Final Destination" pour des enchères légendaires et mythiques à bas prix.
     if auction["bin"] and auction["item_name"].find(item_final_destination) != -1:
         # L'objet "Final Destination" a une enchère initiale de 15M à 22M.
@@ -19,28 +32,114 @@ def process_auction(auction):
         elif auction["tier"] == "MYTHIC" and auction["item_lore"].find("100,000") != -1 and auction["starting_bid"] < 35000000:
             results.append("Potential 100 000 mythic    : " + auction["item_name"] + " at the price of " + str(auction["starting_bid"]))
 
+
+    #                    ___......----:'"":--....(\
+    #             .-':'"":   :  :  :   :  :  :.(1\.`-.
+    #           .'`.  `.  :  :  :   :   : : : : : :  .';
+    #          :-`. :   .  : :  `.  :   : :.   : :`.`. a;
+    #          : ;-. `-.-._.  :  :   :  ::. .' `. `., =  ;
+    #          :-:.` .-. _-.,  :  :  : ::,.'.-' ;-. ,'''"
+    #        .'.' ;`. .-' `-.:  :  : : :;.-'.-.'   `-'
+    # :.   .'.'.-' .'`-.' -._;..:---'''"~;._.-;
+    # :`--'.'  : :'     ;`-.;            :.`.-'`.
+    #  `'"`    : :      ;`.;             :=; `.-'`.
+    #          : '.    :  ;              :-:   `._-`.
+    #           `'"'    `. `.            `--'     `._;
+    #                     `'"'
     # Recherche l'objet "Tiger" pour des enchères épiques et légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_tiger) != -1:
-        if auction["tier"] == "EPIC" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 40999999:
+        if auction["tier"] == "EPIC" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 18999999:
             results.append("Tiger epic lvl 100          : " + str(auction["starting_bid"]))
-        elif auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 70000000:
+        elif auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 28000000:
             results.append("Tiger leg lvl 100           : " + str(auction["starting_bid"]))
 
+
+    #  |\(                          .'  Y '>,
+    #   \ \                        / _   _   \
+    #    \\\                       )(_) (_)(|}
+    #     \\\                      {  4A   } /
+    #      \\\                      \uLuJJ/\l
+    #       \\\                     |3    p)/
+    #        \\\___ __________      /nnm_n//
+    #        c7___-__,__-)\,__)(".  \_>-<_/D
+    #                   //V     \_"-._.__G G_c__.-__<"/ ( \
+    #                          <"-._>__-,G_.___)\   \7\
+    #                         ("-.__.| \"<.__.-" )   \ \
+    #                         |"-.__"\  |"-.__.-".\   \ \
+    #                         ("-.__"". \"-.__.-".|    \_\
+    #                         \"-.__""|!|"-.__.-".)     \ \
+    #                          "-.__""\_|"-.__.-"./      \ l
+    #                           ".__""">G>-.__.-">       .--,_
     # Recherche l'objet "Wither Skeleton" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_skeleton) != -1:
         if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 9000000:
             results.append("Wither skeleton leg lvl 100 : " + str(auction["starting_bid"]))
 
+
+    #                      __..--"".          .""--..__             
+    #                _..-``       ][\        /[]       ``-.._       
+    #            _.-`           __/\ \      / /\__           `-._   
+    #         .-`     __..---```    \ \    / /    ```---..__     `-.
+    #       .`  _.--``               \ \  / /               ``--._  `.
+    #      / .-`                      \ \/ /                      `-. \
+    #     /.`                          \/ /                          `.\
+    #    |`                            / /\                            `|
+    # Recherche l'objet "Reaper Scythe" pour des enchères légendaires à bas prix.
+    elif auction["bin"] and auction["item_name"].find(item_reaper) != -1:
+        if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("Ultimate Wise V") != -1 and auction["starting_bid"] < 40000000:
+            results.append("Reaper Scythe               : " + str(auction["starting_bid"]))
+
+
+    #            __  _
+    #        .-.'  `; `-._  __  _
+    #       (_,         .-:'  `; `-._
+    #     ,'o"(        (_,           )
+    #    (__,-'      ,'o"(            )>
+    #       (       (__,-'            )
+    #        `-'._.--._(             )
+    #           |||  |||`-'._.--._.-'
+    #                      |||  |||
     # Recherche l'objet "Sheep" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_sheep) != -1:
         if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 11500000:
             results.append("Sheep leg lvl 100           : " + str(auction["starting_bid"]))
-
+    
+    
+    #                  .---.
+    #     .--.     ___/     \
+    #    /    `.-""   `-,    ;
+    #   ;     /     O O  \  /
+    #   `.    \          /-'
+    #  _  J-.__;      _.'
+    # (" /      `.   -=:
+    #  `:         `, -=|
+    #   |  F\    i, ; -|
+    #   |  | |   ||  \_J
+    #   mmm! `mmM Mmm'
     # Recherche l'objet "Elephant" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_elephant) != -1:
-        if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 46000000:
+        if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 40000000:
             results.append("Elephant leg lvl 100        : " + str(auction["starting_bid"]))
 
+
+    #                     /\              _
+    #                    /  \            / \
+    #                   |  _ \          /   \   _
+    #                   | / \ \        /     \ / \
+    #                   |/   \ \       |      /   \
+    #                   /     \ |      | /\  / \   \
+    #                  /|      \| ~  ~ |/  \/   \   \
+    #          _______/_|_______\(o)(o)/___/\___|_   \
+    #         /      /  |       (______)     \  | \   \_
+    #        /      /   |      /              \ |  \
+    #       /      /    |     /                \|   \
+    #      /      /     |    /                  \    \
+    #     /     _/      |   /                   |\    \
+    #    /             _|  |                    |_\    \_
+    #  _/                  |                       \
+    #                      |                        \
+    #                      |                         \_
+    #                     _|                        
     # Recherche l'objet "Tarantula Helmet" pour des enchères mythiques à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_helmet_tar) != -1:
         if auction["tier"] == "MYTHIC" and auction["item_lore"].find("25,000") != -1 and auction["starting_bid"] < 20000000:
@@ -83,6 +182,7 @@ item_skeleton = "Wither Skeleton"
 item_sheep="Sheep"
 item_elephant="Elephant"
 item_helmet_tar = "Tarantula Helmet"
+item_reaper="Reaper Scythe"
 
 # Créer une liste pour stocker les résultats
 results = []
@@ -98,7 +198,7 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
         pass
 
 # On crée une liste des catégories d'objet à rechercher
-categories_list = ["Leggings", "Helmet", "Boots", "Chestplate", "lvl 100"]
+categories_list = ["Leggings", "Helmet", "Boots", "Chestplate", "Reaper Scythe", "lvl 100"]
 
 # On crée un dictionnaire qui a pour clés les catégories et pour valeurs des listes vides.
 categories_results = {category: [] for category in categories_list}
