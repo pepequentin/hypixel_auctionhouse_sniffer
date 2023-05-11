@@ -183,6 +183,9 @@ for pages in range(0, number_of_page):
 # Si aucune enchère n'est trouvée, renvoie une liste vide.
 auctions = [auction for response in responses for auction in response.get("auctions", [])]
 
+#  Print dun ascii art pour dissocier deux apples dif
+print("--------------------------------------------------------------------.\n| .--                    FEDERAL REVERSE NOTE                    .-- |\n| |_       ......    THE UNTIED STATES OF FRANCE                 |_  |\n| __)    ``````````             ______            B93810455B     __) |\n|      2        ___            /      \                     2        |\n|              /|~  \\         /   _-\\  \           __ _ _ _  __      |\n|             | |-< |        |  //   \  |         |_  | | | |_       |\n|              \|_//         | |-  o o| |         |   | `.' |__      |\n|               ~~~          | |\   b.' |                            |\n|       B83910455B           |  \ '~~|  |                            |\n| .--  2                      \_/ ```__/    ....            2    .-- |\n| |_        ///// ///// ////   \__\'`\/      ``  //// / ////      |_  |\n| __)                     C I N Q  E U R O S                     __) |\n`--------------------------------------------------------------------\'")
+
 # Crée des variables pour les noms d'objets recherchés.
 item_final_destination = "Final"
 item_shadow_assassin = "Ancient Shadow Assassin"
