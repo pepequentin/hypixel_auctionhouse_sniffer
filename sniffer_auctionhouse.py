@@ -88,7 +88,7 @@ def process_auction(auction):
     elif auction["bin"] and auction["item_name"].find(item_reaper) != -1:
         if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("Ultimate Wise V") != -1 and auction["starting_bid"] < 37899999:
             results.append("    Reaper Scythe Leg           : " + str(auction["starting_bid"]))
-        elif auction["tier"] == "MYTHIC" and auction["starting_bid"] < 38999999:
+        elif auction["tier"] == "MYTHIC" and auction["starting_bid"] < 36999999:
             results.append("    Reaper Scythe Mythic        : " + str(auction["starting_bid"]))
         elif auction["starting_bid"] < 28000000:
             results.append("    Reaper Scythe Nothing       : " + str(auction["starting_bid"]))
