@@ -150,6 +150,13 @@ def process_auction(auction):
             results.append("    Potential helmet tarantula  : " + str(auction["starting_bid"]))
         if auction["tier"] == "MYTHIC" and auction["item_lore"].find("50,000") != -1 and auction["starting_bid"] < 30000000:
             results.append("    Potential helmet tarantula  : " + str(auction["starting_bid"]))
+ 
+ 
+ 
+    # Recherche l'objet "Aspect of the Void" pour des enchères légendaires à bas prix.
+    elif auction["bin"] and auction["item_name"].find(item_aspect_of_the_void) != -1:
+        if auction["tier"] == "EPIC" and auction["item_lore"].find("12 blocks") != -1 and auction["starting_bid"] < 20000000:
+            results.append("    Aspect of the Void          : " + str(auction["starting_bid"]))
     pass
 
 
@@ -199,6 +206,7 @@ item_sheep="Sheep"
 item_elephant="Elephant"
 item_helmet_tar = "Tarantula Helmet"
 item_reaper="Reaper Scythe"
+item_aspect_of_the_void="Aspect of the Void"
 
 # Créer une liste pour stocker les résultats
 results = []
@@ -214,7 +222,7 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
         pass
 
 # On crée une liste des catégories d'objet à rechercher
-categories_list = ["Leggings", "Helmet", "Boots", "Chestplate", "Reaper Scythe", "lvl 100"]
+categories_list = ["Leggings", "Helmet", "Boots", "Chestplate", "Reaper Scythe", "Aspect of the Void", "lvl 100"]
 
 # On crée un dictionnaire qui a pour clés les catégories et pour valeurs des listes vides.
 categories_results = {category: [] for category in categories_list}
