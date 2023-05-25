@@ -86,7 +86,7 @@ def process_auction(auction):
     #    |`                            / /\                            `|
     # Recherche l'objet "Reaper Scythe" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_reaper) != -1:
-        if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("Ultimate Wise V") != -1 and auction["starting_bid"] < 37899999:
+        if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("Ultimate Wise V") != -1 and auction["starting_bid"] < 36999999:
             results.append("    Reaper Scythe Leg           : " + str(auction["starting_bid"]))
         elif auction["tier"] == "MYTHIC" and auction["starting_bid"] < 36999999:
             results.append("    Reaper Scythe Mythic        : " + str(auction["starting_bid"]))
@@ -152,10 +152,15 @@ def process_auction(auction):
             results.append("    Potential helmet tarantula  : " + str(auction["starting_bid"]))
  
  
- 
+    #      _                    _ 
+    #     | |                  | |
+    #  ___| |__   _____   _____| |
+    # / __| '_ \ / _ \ \ / / _ \ |
+    # \__ \ | | | (_) \ V /  __/ |
+    # |___/_| |_|\___/ \_/ \___|_|
     # Recherche l'objet "Aspect of the Void" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_aspect_of_the_void) != -1:
-        if auction["tier"] == "EPIC" and auction["item_lore"].find("12 blocks") != -1 and auction["starting_bid"] < 20000000:
+        if auction["tier"] == "EPIC" and auction["item_lore"].find("12 blocks") != -1 and auction["starting_bid"] < 700000:
             results.append("    Aspect of the Void          : " + str(auction["starting_bid"]))
     pass
 
