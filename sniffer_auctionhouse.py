@@ -86,11 +86,11 @@ def process_auction(auction):
     #    |`                            / /\                            `|
     # Recherche l'objet "Reaper Scythe" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_reaper) != -1:
-        if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("Ultimate Wise V") != -1 and auction["starting_bid"] < 36999999:
+        if auction["tier"] == "LEGENDARY" and auction["item_lore"].find("Ultimate Wise V") != -1 and auction["starting_bid"] < 26999999:
             results.append("    Reaper Scythe Leg           : " + str(auction["starting_bid"]))
         elif auction["tier"] == "MYTHIC" and auction["starting_bid"] < 36999999:
             results.append("    Reaper Scythe Mythic        : " + str(auction["starting_bid"]))
-        elif auction["starting_bid"] < 28000000:
+        elif auction["starting_bid"] < 25555555:
             results.append("    Reaper Scythe Nothing       : " + str(auction["starting_bid"]))
         
 
@@ -122,7 +122,7 @@ def process_auction(auction):
     #   mmm! `mmM Mmm'
     # Recherche l'objet "Elephant" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_elephant) != -1:
-        if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 40000000:
+        if auction["tier"] == "LEGENDARY" and auction["item_name"].find("Lvl 100") != -1 and auction["starting_bid"] < 20000000:
             results.append("    Elephant leg lvl 100        : " + str(auction["starting_bid"]))
 
 
