@@ -160,7 +160,7 @@ def process_auction(auction):
     # |___/_| |_|\___/ \_/ \___|_|
     # Recherche l'objet "Aspect of the Void" pour des enchères légendaires à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_aspect_of_the_void) != -1:
-        if auction["tier"] == "EPIC" and auction["item_lore"].find("12 blocks") != -1 and auction["starting_bid"] < 700000:
+        if auction["tier"] == "EPIC" and auction["item_lore"].find("12 blocks") != -1 and auction["starting_bid"] < 750000:
             results.append("    Aspect of the Void          : " + str(auction["starting_bid"]))
     pass
 
