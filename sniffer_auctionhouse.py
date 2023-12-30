@@ -158,11 +158,23 @@ def process_auction(auction):
     # / __| '_ \ / _ \ \ / / _ \ |
     # \__ \ | | | (_) \ V /  __/ |
     # |___/_| |_|\___/ \_/ \___|_|
-    # Recherche l'objet "Aspect of the Void" pour des enchères légendaires à bas prix.
+    # Recherche l'objet "Aspect of the Void" pour des enchères epic à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_aspect_of_the_void) != -1:
         if auction["tier"] == "EPIC" and auction["item_lore"].find("12 blocks") != -1 and auction["starting_bid"] < 750000:
             results.append("    Aspect of the Void          : " + str(auction["starting_bid"]))
+
+    # Recherche l'objet "item_molten" pour des enchères epic à bas prix.
+    elif auction["bin"] and auction["item_name"].find(item_molten_necklace) != -1:
+        if auction["tier"] == "EPIC" and auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+            results.append("    Molten Necklace             : " + str(auction["starting_bid"]))
+    elif auction["bin"] and auction["item_name"].find(item_molten_bracelet) != -1:
+        if auction["tier"] == "EPIC" and auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+            results.append("    Molten Bracelet             : " + str(auction["starting_bid"]))
+    elif auction["bin"] and auction["item_name"].find(item_molten_cloak) != -1:
+        if auction["tier"] == "EPIC" and auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+            results.append("    Molten Cloak             : " + str(auction["starting_bid"]))
     pass
+
 
 
 # List of all responses from get call
@@ -212,6 +224,9 @@ item_elephant="Elephant"
 item_helmet_tar = "Tarantula Helmet"
 item_reaper="Reaper Scythe"
 item_aspect_of_the_void="Aspect of the Void"
+item_molten_necklace="Molten Necklace"
+item_molten_bracelet="Molten Bracelet"
+item_molten_cloak="Molten Cloak"
 
 # Créer une liste pour stocker les résultats
 results = []
@@ -227,7 +242,7 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
         pass
 
 # On crée une liste des catégories d'objet à rechercher
-categories_list = ["Leggings", "Helmet", "Boots", "Chestplate", "Reaper Scythe", "Aspect of the Void", "lvl 100"]
+categories_list = ["Leggings", "Helmet", "Boots", "Chestplate", "Reaper Scythe", "Aspect of the Void", "lvl 100", "Molten Necklace", "Molten Bracelet", "Molten Cloak"]
 
 # On crée un dictionnaire qui a pour clés les catégories et pour valeurs des listes vides.
 categories_results = {category: [] for category in categories_list}
