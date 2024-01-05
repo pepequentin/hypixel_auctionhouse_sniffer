@@ -166,24 +166,38 @@ def process_auction(auction):
     # Recherche l'objet "item_molten" pour des enchères epic à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_molten_necklace) != -1:
         if auction["tier"] == "EPIC" and auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
-            results.append("    Molten Necklace             : " + str(auction["starting_bid"]))
+            match = re.search(r"Mana Regeneration ([IVXLCDM]+)", auction["item_lore"])
+            Mana_regen_chiffre = match.group(1)
+            match = re.search(r"Mana Pool ([IVXLCDM]+)", auction["item_lore"])
+            Mana_pool_chiffre = match.group(1)
+
+            results.append("    Molten Necklace             : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
     elif auction["bin"] and auction["item_name"].find(item_molten_bracelet) != -1:
         if auction["tier"] == "EPIC" and auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
-            results.append("    Molten Bracelet             : " + str(auction["starting_bid"]))
+            match = re.search(r"Mana Regeneration ([IVXLCDM]+)", auction["item_lore"])
+            Mana_regen_chiffre = match.group(1)
+            match = re.search(r"Mana Pool ([IVXLCDM]+)", auction["item_lore"])
+            Mana_pool_chiffre = match.group(1)
+            
+            results.append("    Molten Bracelet             : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
     elif auction["bin"] and auction["item_name"].find(item_molten_cloak) != -1:
         if auction["tier"] == "EPIC" and auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
-            results.append("    Molten Cloak                : " + str(auction["starting_bid"]))
+            match = re.search(r"Mana Regeneration ([IVXLCDM]+)", auction["item_lore"])
+            Mana_regen_chiffre = match.group(1)
+            match = re.search(r"Mana Pool ([IVXLCDM]+)", auction["item_lore"])
+            Mana_pool_chiffre = match.group(1)
+            
+            results.append("    Molten Cloak                : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre))
 
-
-    elif auction["bin"] and auction["item_name"].find(item_aurora_chestplate) != -1:
-        if auction["item_lore"].find("Mana Regeneration") != -1:
-            results.append("    Aurora Chestplate           : " + str(auction["starting_bid"]))
-    elif auction["bin"] and auction["item_name"].find(item_aurora_leggings) != -1:
-        if auction["item_lore"].find("Mana Regeneration") != -1:
-            results.append("    Aurora Leggings             : " + str(auction["starting_bid"]))
-    elif auction["bin"] and auction["item_name"].find(item_aurora_boots) != -1:
-        if auction["item_lore"].find("Mana Regeneration") != -1:
-            results.append("    Aurora Boots                : " + str(auction["starting_bid"]))
+    # elif auction["bin"] and auction["item_name"].find(item_aurora_chestplate) != -1:
+    #     if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+    #         results.append("    Aurora Chestplate           : " + str(auction["starting_bid"]))
+    # elif auction["bin"] and auction["item_name"].find(item_aurora_leggings) != -1:
+    #     if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+    #         results.append("    Aurora Leggings             : " + str(auction["starting_bid"]))
+    # elif auction["bin"] and auction["item_name"].find(item_aurora_boots) != -1:
+    #     if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+    #         results.append("    Aurora Boots                : " + str(auction["starting_bid"]))
 
 
 
@@ -260,7 +274,7 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
         pass
 
 # On crée une liste des catégories d'objet à rechercher
-categories_list = ["Leggings", "Helmet", "Boots", "Chestplate", "Reaper Scythe", "Aspect of the Void", "lvl 100", "Molten Necklace", "Molten Bracelet", "Molten Cloak", "Aurora Chestplate", "Aurora Leggings", "Aurora Boots"]
+categories_list = ["Final Destination Leggings", "Final Destination Helmet", "Final Destination Boots", "Final Destination Chestplate", "Reaper Scythe", "Aspect of the Void", "lvl 100", "Molten Necklace", "Molten Bracelet", "Molten Cloak", "Aurora Chestplate", "Aurora Leggings", "Aurora Boots"]
 
 # On crée un dictionnaire qui a pour clés les catégories et pour valeurs des listes vides.
 categories_results = {category: [] for category in categories_list}
@@ -287,5 +301,15 @@ for result in results:
 for category, results_list in categories_results.items():
     # Affichage de 100 '=' pour un meilleur affichage
     print(f"\n{category}:\n{'='*100}")
-    for result in sorted(results_list, key=lambda x: x[-9:]):
-        print(f"{result}")
+    
+    # Fonction de clé personnalisée pour trier en fonction du nombre après le ':'
+    def get_number_after_colon(result):
+        # Recherche du nombre après le ':'
+        match = re.search(r": (\d+)", result)
+        return int(match.group(1)) if match else 0
+
+    # Tri des résultats en utilisant la fonction de clé personnalisée
+    sorted_results = sorted(results_list, key=get_number_after_colon)
+    
+    for result in sorted_results:
+        print(result)
