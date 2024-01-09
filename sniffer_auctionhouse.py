@@ -165,7 +165,7 @@ def process_auction(auction):
 
     # Recherche l'objet "item_molten" pour des enchères epic à bas prix.
     elif auction["bin"] and auction["item_name"].find(item_molten_necklace) != -1:
-        if auction["tier"] == "EPIC" and auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+        if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
             match = re.search(r"Mana Regeneration ([IVXLCDM]+)", auction["item_lore"])
             Mana_regen_chiffre = match.group(1)
             match = re.search(r"Mana Pool ([IVXLCDM]+)", auction["item_lore"])
@@ -173,7 +173,7 @@ def process_auction(auction):
 
             results.append("    Molten Necklace             : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
     elif auction["bin"] and auction["item_name"].find(item_molten_bracelet) != -1:
-        if auction["tier"] == "EPIC" and auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+        if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
             match = re.search(r"Mana Regeneration ([IVXLCDM]+)", auction["item_lore"])
             Mana_regen_chiffre = match.group(1)
             match = re.search(r"Mana Pool ([IVXLCDM]+)", auction["item_lore"])
@@ -181,23 +181,38 @@ def process_auction(auction):
             
             results.append("    Molten Bracelet             : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
     elif auction["bin"] and auction["item_name"].find(item_molten_cloak) != -1:
-        if auction["tier"] == "EPIC" and auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+        if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
             match = re.search(r"Mana Regeneration ([IVXLCDM]+)", auction["item_lore"])
             Mana_regen_chiffre = match.group(1)
             match = re.search(r"Mana Pool ([IVXLCDM]+)", auction["item_lore"])
             Mana_pool_chiffre = match.group(1)
             
-            results.append("    Molten Cloak                : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre))
+            results.append("    Molten Cloak                : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
 
-    # elif auction["bin"] and auction["item_name"].find(item_aurora_chestplate) != -1:
-    #     if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
-    #         results.append("    Aurora Chestplate           : " + str(auction["starting_bid"]))
-    # elif auction["bin"] and auction["item_name"].find(item_aurora_leggings) != -1:
-    #     if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
-    #         results.append("    Aurora Leggings             : " + str(auction["starting_bid"]))
-    # elif auction["bin"] and auction["item_name"].find(item_aurora_boots) != -1:
-    #     if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
-    #         results.append("    Aurora Boots                : " + str(auction["starting_bid"]))
+    elif auction["bin"] and auction["item_name"].find(item_aurora_chestplate) != -1:
+        if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+            match = re.search(r"Mana Regeneration ([IVXLCDM]+)", auction["item_lore"])
+            Mana_regen_chiffre = match.group(1)
+            match = re.search(r"Mana Pool ([IVXLCDM]+)", auction["item_lore"])
+            Mana_pool_chiffre = match.group(1)
+            
+            results.append("    Aurora Chestplate           : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
+    elif auction["bin"] and auction["item_name"].find(item_aurora_leggings) != -1:
+        if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+            match = re.search(r"Mana Regeneration ([IVXLCDM]+)", auction["item_lore"])
+            Mana_regen_chiffre = match.group(1)
+            match = re.search(r"Mana Pool ([IVXLCDM]+)", auction["item_lore"])
+            Mana_pool_chiffre = match.group(1)
+            
+            results.append("    Aurora Leggings             : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
+    elif auction["bin"] and auction["item_name"].find(item_aurora_boots) != -1:
+        if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+            match = re.search(r"Mana Regeneration ([IVXLCDM]+)", auction["item_lore"])
+            Mana_regen_chiffre = match.group(1)
+            match = re.search(r"Mana Pool ([IVXLCDM]+)", auction["item_lore"])
+            Mana_pool_chiffre = match.group(1)
+            
+            results.append("    Aurora Boots                : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
 
 
 
