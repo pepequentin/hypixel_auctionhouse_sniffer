@@ -214,6 +214,14 @@ def process_auction(auction):
             
             results.append("    Aurora Boots                : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
 
+    elif auction["bin"] and auction["item_name"].find(item_contagion_bracelet) != -1:
+        if auction["item_lore"].find("Mana Regeneration") != -1 and auction["item_lore"].find("Mana Pool") != -1:
+            match = re.search(r"Mana Regeneration ([IVXLCDM]+)", auction["item_lore"])
+            Mana_regen_chiffre = match.group(1)
+            match = re.search(r"Mana Pool ([IVXLCDM]+)", auction["item_lore"])
+            Mana_pool_chiffre = match.group(1)
+            
+            results.append("    Gauntlet of Contagion       : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
 
 
     pass
@@ -269,11 +277,13 @@ item_reaper="Reaper Scythe"
 item_aspect_of_the_void="Aspect of the Void"
 item_molten_necklace="Molten Necklace"
 item_molten_bracelet="Molten Bracelet"
+item_contagion_bracelet="Gauntlet of Contagion"
 item_molten_cloak="Molten Cloak"
 
 item_aurora_chestplate="Aurora Chestplate"
 item_aurora_leggings="Aurora Leggings"
 item_aurora_boots="Aurora Boots"
+
 
 # Créer une liste pour stocker les résultats
 results = []
@@ -289,7 +299,7 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
         pass
 
 # On crée une liste des catégories d'objet à rechercher
-categories_list = ["Final Destination Leggings", "Final Destination Helmet", "Final Destination Boots", "Final Destination Chestplate", "Reaper Scythe", "Aspect of the Void", "lvl 100", "Molten Necklace", "Molten Bracelet", "Molten Cloak", "Aurora Chestplate", "Aurora Leggings", "Aurora Boots"]
+categories_list = ["Final Destination Leggings", "Final Destination Helmet", "Final Destination Boots", "Final Destination Chestplate", "Reaper Scythe", "Aspect of the Void", "lvl 100", "Molten Necklace", "Molten Bracelet", "Molten Cloak", "Aurora Chestplate", "Aurora Leggings", "Aurora Boots", "Gauntlet of Contagion"]
 
 # On crée un dictionnaire qui a pour clés les catégories et pour valeurs des listes vides.
 categories_results = {category: [] for category in categories_list}
