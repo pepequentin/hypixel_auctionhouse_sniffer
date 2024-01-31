@@ -224,6 +224,68 @@ def process_auction(auction):
             results.append("    Gauntlet of Contagion       : " + str(auction["starting_bid"]) + "  Mana regen : " + str(Mana_regen_chiffre) + " Mana Pool : " + str(Mana_pool_chiffre) + " " + auction["tier"])
 
 
+    # Recherche l'objet "item_molten" pour des enchères epic à bas prix.
+    if auction["bin"] and auction["item_name"].find(item_molten_necklace) != -1:
+        if auction["item_lore"].find("Vitality") != -1 and auction["item_lore"].find("Dominance") != -1:
+            match = re.search(r"Vitality ([IVXLCDM]+)", auction["item_lore"])
+            vitality_chiffre = match.group(1)
+            match = re.search(r"Dominance ([IVXLCDM]+)", auction["item_lore"])
+            Dominance_chiffre = match.group(1)
+
+            results.append("    Molten Necklace             : " + str(auction["starting_bid"]) + "  Vitality : " + str(vitality_chiffre) + " Dominance : " + str(Dominance_chiffre) + " " + auction["tier"])
+    if auction["bin"] and auction["item_name"].find(item_molten_bracelet) != -1:
+        if auction["item_lore"].find("Vitality") != -1 and auction["item_lore"].find("Dominance") != -1:
+            match = re.search(r"Vitality ([IVXLCDM]+)", auction["item_lore"])
+            vitality_chiffre = match.group(1)
+            match = re.search(r"Dominance ([IVXLCDM]+)", auction["item_lore"])
+            Dominance_chiffre = match.group(1)
+            
+            results.append("    Molten Bracelet             : " + str(auction["starting_bid"]) + "  Vitality : " + str(vitality_chiffre) + " Dominance : " + str(Dominance_chiffre) + " " + auction["tier"])
+    if auction["bin"] and auction["item_name"].find(item_molten_cloak) != -1:
+        if auction["item_lore"].find("Vitality") != -1 and auction["item_lore"].find("Dominance") != -1:
+            match = re.search(r"Vitality ([IVXLCDM]+)", auction["item_lore"])
+            vitality_chiffre = match.group(1)
+            match = re.search(r"Dominance ([IVXLCDM]+)", auction["item_lore"])
+            Dominance_chiffre = match.group(1)
+            
+            results.append("    Molten Cloak                : " + str(auction["starting_bid"]) + "  Vitality : " + str(vitality_chiffre) + " Dominance : " + str(Dominance_chiffre) + " " + auction["tier"])
+
+    if auction["bin"] and auction["item_name"].find(item_aurora_chestplate) != -1:
+        if auction["item_lore"].find("Vitality") != -1 and auction["item_lore"].find("Dominance") != -1:
+            match = re.search(r"Vitality ([IVXLCDM]+)", auction["item_lore"])
+            vitality_chiffre = match.group(1)
+            match = re.search(r"Dominance ([IVXLCDM]+)", auction["item_lore"])
+            Dominance_chiffre = match.group(1)
+            
+            results.append("    Aurora Chestplate           : " + str(auction["starting_bid"]) + "  Vitality : " + str(vitality_chiffre) + " Dominance : " + str(Dominance_chiffre) + " " + auction["tier"])
+    if auction["bin"] and auction["item_name"].find(item_aurora_leggings) != -1:
+        if auction["item_lore"].find("Vitality") != -1 and auction["item_lore"].find("Dominance") != -1:
+            match = re.search(r"Vitality ([IVXLCDM]+)", auction["item_lore"])
+            vitality_chiffre = match.group(1)
+            match = re.search(r"Dominance ([IVXLCDM]+)", auction["item_lore"])
+            Dominance_chiffre = match.group(1)
+            
+            results.append("    Aurora Leggings             : " + str(auction["starting_bid"]) + "  Vitality : " + str(vitality_chiffre) + " Dominance : " + str(Dominance_chiffre) + " " + auction["tier"])
+    if auction["bin"] and auction["item_name"].find(item_aurora_boots) != -1:
+        if auction["item_lore"].find("Vitality") != -1 and auction["item_lore"].find("Dominance") != -1:
+            match = re.search(r"Vitality ([IVXLCDM]+)", auction["item_lore"])
+            vitality_chiffre = match.group(1)
+            match = re.search(r"Dominance ([IVXLCDM]+)", auction["item_lore"])
+            Dominance_chiffre = match.group(1)
+            
+            results.append("    Aurora Boots                : " + str(auction["starting_bid"]) + "  Vitality : " + str(vitality_chiffre) + " Dominance : " + str(Dominance_chiffre) + " " + auction["tier"])
+
+    if auction["bin"] and auction["item_name"].find(item_contagion_bracelet) != -1:
+        if auction["item_lore"].find("Vitality") != -1 and auction["item_lore"].find("Dominance") != -1:
+            match = re.search(r"Vitality ([IVXLCDM]+)", auction["item_lore"])
+            vitality_chiffre = match.group(1)
+            match = re.search(r"Dominance ([IVXLCDM]+)", auction["item_lore"])
+            Dominance_chiffre = match.group(1)
+            
+            results.append("    Gauntlet of Contagion       : " + str(auction["starting_bid"]) + "  Vitality : " + str(vitality_chiffre) + " Dominance : " + str(Dominance_chiffre) + " " + auction["tier"])
+
+
+
     pass
 
 
